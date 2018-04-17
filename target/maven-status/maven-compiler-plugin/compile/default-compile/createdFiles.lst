@@ -1,0 +1,13 @@
+ru\bellintegrator\weatherbroker\weather\controller\WeatherController.class
+ru\bellintegrator\weatherbroker\weather\service\WeatherService.class
+ru\bellintegrator\weatherbroker\weather\view\Query.class
+ru\bellintegrator\weatherbroker\config\AppConfig.class
+ru\bellintegrator\weatherbroker\messageservice\JmsMessageProducer.class
+ru\bellintegrator\weatherbroker\messageservice\SimpleJmsConsumer.class
+ru\bellintegrator\weatherbroker\Application.class
+ru\bellintegrator\weatherbroker\messageservice\SimpleJmsProducer.class
+ru\bellintegrator\weatherbroker\messageservice\JmsMessageListener.class
+ru\bellintegrator\weatherbroker\weather\service\impl\WeatherServiceImpl.class
+ru\bellintegrator\weatherbroker\weather\view\Weather.class
+ru\bellintegrator\weatherbroker\servlets\WeatherServlet.class
+ru\bellintegrator\weatherbroker\weather\utils\RestTemplateManager.class

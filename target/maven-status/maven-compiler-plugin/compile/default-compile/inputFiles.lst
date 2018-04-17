@@ -1,0 +1,13 @@
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\messageservice\SimpleJmsConsumer.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\Application.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\weather\service\WeatherService.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\weather\utils\RestTemplateManager.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\weather\view\Query.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\weather\view\Weather.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\messageservice\SimpleJmsProducer.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\weather\controller\WeatherController.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\messageservice\JmsMessageProducer.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\servlets\WeatherServlet.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\messageservice\JmsMessageListener.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\config\AppConfig.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\weather\service\impl\WeatherServiceImpl.java
