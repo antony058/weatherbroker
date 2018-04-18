@@ -1,23 +1,19 @@
 package ru.bellintegrator.weatherbroker.messageservice;
 
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
-import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 @Component
-public class JmsMessageListener implements MessageListener {
+public class JmsMessageListener {
 
-    @Override
-    public void onMessage(Message message) {
+    @JmsListener(destination = "java:jboss/exported/jms/queue/messageBoxQueue")
+    public void gotMessage(Message message) throws JMSException {
         if (message instanceof TextMessage) {
-            try {
-                System.out.println("I got a new message: " + ((TextMessage) message).getText());
-            } catch (JMSException e) {
-                e.printStackTrace();
-            }
+            System.out.println("I got a new message: " + ((TextMessage) message).getText());
         }
     }
 }

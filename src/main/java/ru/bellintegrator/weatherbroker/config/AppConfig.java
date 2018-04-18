@@ -3,15 +3,8 @@ package ru.bellintegrator.weatherbroker.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import ru.bellintegrator.weatherbroker.messageservice.JmsMessageListener;
 import ru.bellintegrator.weatherbroker.weather.utils.RestTemplateManager;
 import ru.bellintegrator.weatherbroker.weather.view.Weather;
-
-import javax.jms.ConnectionFactory;
-import javax.jms.Queue;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
 
 @Configuration
 public class AppConfig {
@@ -41,14 +34,6 @@ public class AppConfig {
     @Bean
     public ConnectionFactory getConnectionFactory() throws NamingException {
         return (ConnectionFactory) getInitialContext().lookup(CONNECTION_FACTORY);
-    }
-
-    @Bean
-    public JmsTemplate getJmsTemplate() throws NamingException {
-        JmsTemplate jmsTemplate = new JmsTemplate();
-        jmsTemplate.setConnectionFactory(getConnectionFactory());
-        jmsTemplate.setDefaultDestination(getQueue());
-        return jmsTemplate;
     }
 
     @Bean
