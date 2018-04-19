@@ -1,7 +1,9 @@
 package ru.bellintegrator.weatherbroker.weather.service;
 
-import ru.bellintegrator.weatherbroker.weather.view.Weather;
+import javassist.NotFoundException;
+import ru.bellintegrator.weatherbroker.weather.view.WeatherView;
 
 public interface WeatherService {
-    Weather sendWeatherRequest(String city);
+    void save(WeatherView weatherView) throws NotFoundException;
+    WeatherView getCityWeather(String cityName);
 }

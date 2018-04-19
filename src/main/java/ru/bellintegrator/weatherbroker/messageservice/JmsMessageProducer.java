@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
+import ru.bellintegrator.weatherbroker.weather.dao.WeatherDAO;
+import ru.bellintegrator.weatherbroker.weather.model.Weather;
+import ru.bellintegrator.weatherbroker.weather.view.WeatherView;
 
 import javax.jms.*;
 
@@ -13,11 +16,11 @@ public class JmsMessageProducer {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    public void sendMessage(final String messageText) {
-        jmsTemplate.send("java:jboss/exported/jms/queue/messageBoxQueue", new MessageCreator() {
+    public void sendMessage(final WeatherView weatherView) {
+        jmsTemplate.send("java:jboss/exported/jms/topic/messageBoxTopic", new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-                return session.createTextMessage(messageText);
+                return session.createObjectMessage(weatherView);
             }
         });
     }

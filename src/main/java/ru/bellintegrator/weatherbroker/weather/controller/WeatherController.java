@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.bellintegrator.weatherbroker.weather.service.WeatherService;
-import ru.bellintegrator.weatherbroker.weather.view.Weather;
+import ru.bellintegrator.weatherbroker.weather.view.WeatherView;
+
+import java.security.InvalidParameterException;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -21,9 +23,9 @@ public class WeatherController {
     }
 
     @RequestMapping(value = "/weather/{city}", method = {RequestMethod.GET})
-    public ResponseEntity<Weather> getWeather(@PathVariable String city) {
-        Weather weather = weatherService.sendWeatherRequest(city);
+    public ResponseEntity<WeatherView> getWeather(@PathVariable String city) {
+        WeatherView weatherView = weatherService.getCityWeather(city);
 
-        return new ResponseEntity<Weather>(weather, HttpStatus.OK);
+        return new ResponseEntity<WeatherView>(weatherView, HttpStatus.OK);
     }
 }

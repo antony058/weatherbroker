@@ -3,8 +3,7 @@ package ru.bellintegrator.weatherbroker.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import ru.bellintegrator.weatherbroker.weather.utils.RestTemplateManager;
-import ru.bellintegrator.weatherbroker.weather.view.Weather;
+import ru.bellintegrator.weatherbroker.requestservice.RestTemplateManager;
 
 @Configuration
 public class AppConfig {
@@ -19,11 +18,6 @@ public class AppConfig {
     @Bean
     public RestTemplateManager getRestTemplateManager() {
         return new RestTemplateManager(getRestTemplate());
-    }
-
-    @Bean
-    public Weather getWeather() {
-        return new Weather("1.1.2001", "10 c", null);
     }
 
     /*@Bean

@@ -1,4 +1,4 @@
-<%@ page import="ru.bellintegrator.weatherbroker.weather.view.Weather" %>
+<%@ page import="ru.bellintegrator.weatherbroker.weather.view.WeatherView" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -21,10 +21,10 @@
             $.ajax({
                 url: '/weather/weather/' + cityName,
                 success: function (data) {
-                    var weather = "Date: " + data.date + "\n" +
+                    var weatherView = "Date: " + data.date + "\n" +
                             "Temperature: " + data.temp + "\n" +
                             "Text: " + data.text;
-                    alert(weather);
+                    alert(weatherView);
                 }
             })
         });
