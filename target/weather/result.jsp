@@ -1,4 +1,4 @@
-<%@ page import="ru.bellintegrator.weatherbroker.weather.view.WeatherView" %>
+<%@ page import="ru.bellintegrator.weatherbroker.server.weather.view.WeatherView" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>

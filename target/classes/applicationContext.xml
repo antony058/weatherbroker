@@ -6,15 +6,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- more bean definitions go here -->
 
-    <bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
-        <property name="environment">
-            <props>
-                <prop key="java.naming.provider.url">smqp://localhost:4001/timeout=10000</prop>
-                <prop key="java.naming.factory.initial">com.swiftmq.jndi.InitialContextFactoryImpl</prop>
-            </props>
-        </property>
-    </bean>
-
 
     <context:annotation-config />
 </beans>

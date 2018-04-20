@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Weather</title>
+    <script src="js/jQuery3.0.1.js"></script>
 </head>
 <body>
 
@@ -12,6 +13,36 @@
     </p>
     <input type="submit" id="submitBtn" value="Submit">
 </form>
+
+<script>
+    document.getElementById('city').onkeyup = function () {
+        var cityName = $('#city').val();
+        var isValid = checkUserInput(cityName);
+
+        if (isValid)
+            getCitiesByName(cityName);
+    };
+
+    function checkUserInput(cityName) {
+        var cityNameLength = cityName.length;
+
+        if (cityNameLength > 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function getCitiesByName(cityName) {
+        $.ajax({
+            url: "/weather/city/list/" + cityName,
+            dataType: "application/json",
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
