@@ -20,7 +20,7 @@ public class JmsMessageListener {
     @Autowired
     private WeatherService weatherService;
 
-    @JmsListener(destination = "java:jboss/exported/jms/topic/messageBoxTopic")
+    @JmsListener(destination = "testTopic", containerFactory = "containerFactory")
     public void gotMessage(Message message) throws JMSException, NotFoundException {
         if (message instanceof ObjectMessage) {
             WeatherView view = (WeatherView) ((ObjectMessage) message).getObject();

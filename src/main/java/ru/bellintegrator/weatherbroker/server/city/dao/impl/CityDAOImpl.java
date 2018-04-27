@@ -1,6 +1,7 @@
 package ru.bellintegrator.weatherbroker.server.city.dao.impl;
 
 import javassist.NotFoundException;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,21 +47,19 @@ public class CityDAOImpl implements CityDAO {
     }
 
     @Override
-    public List<City> citiesByName(String cityName) {
-        /*CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+    public List<City> citiesLikeName(String cityName) {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(City.class);
 
         Root<City> cityRoot = criteriaQuery.from(City.class);
 
         criteriaQuery.where(
-                criteriaBuilder.like(cityRoot.<String>get("cityName"), "%" + cityName + "%")
+                criteriaBuilder.like(
+                        criteriaBuilder.lower(cityRoot.<String>get("cityName")),
+                        "%" + cityName.toLowerCase() + "%")
         );
+
         TypedQuery<City> query = em.createQuery(criteriaQuery);
-
-        return query.getResultList();*/
-        TypedQuery<City> query = em.createQuery("SELECT c FROM City c " +
-                "WHERE c.cityName LIKE '%" + cityName + "%'", City.class);
-
         return query.getResultList();
     }
 }

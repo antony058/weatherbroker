@@ -9,39 +9,57 @@
 
 <form action="weather" method="get">
     <p>City:
-        <input type="text" id="city" name="city" placeholder="Enter the city">
+        <input type="text" id="city" name="city" placeholder="Enter the city" list="cities">
+        <datalist id="cities"></datalist>
     </p>
     <input type="submit" id="submitBtn" value="Submit">
 </form>
 
 <script>
-    document.getElementById('city').onkeyup = function () {
-        var cityName = $('#city').val();
-        var isValid = checkUserInput(cityName);
+    $(document).ready(function () {
+        document.getElementById('city').onkeyup = function () {
+            var cityName = $('#city').val();
+            var isValid = checkUserInput(cityName);
 
-        if (isValid)
-            getCitiesByName(cityName);
-    };
+            if (isValid)
+                getCitiesByName(cityName);
+            else
+                clearDatalist();
+        };
 
-    function checkUserInput(cityName) {
-        var cityNameLength = cityName.length;
+        function checkUserInput(cityName) {
+            var cityNameLength = cityName.length;
 
-        if (cityNameLength > 1) {
-            return true;
+            if (cityNameLength > 1) {
+                return true;
+            }
+
+            return false;
         }
 
-        return false;
-    }
+        function clearDatalist() {
+            $('#cities').empty();
+        }
 
-    function getCitiesByName(cityName) {
-        $.ajax({
-            url: "/weather/city/list/" + cityName,
-            dataType: "application/json",
-            success: function (data) {
-                alert(data);
+        function addCitiesToDatalist(cities) {
+            clearDatalist();
+            for (var i=0;i<cities.length;i++) {
+                $('#cities').append("<option value='" + cities[i].city + "'>");
             }
-        });
-    }
+        }
+
+        function getCitiesByName(cityName) {
+            $.ajax({
+                url: "/weather/city/list/" + cityName,
+                dataType: "json",
+                method: "GET",
+                success: function (data) {
+                    addCitiesToDatalist(data);
+                }
+            });
+        }
+    });
+
 </script>
 
 </body>

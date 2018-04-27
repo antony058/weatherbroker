@@ -7,7 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.weatherbroker.server.city.dao.CityDAO;
 import ru.bellintegrator.weatherbroker.server.city.model.City;
 import ru.bellintegrator.weatherbroker.server.city.service.CityService;
+import ru.bellintegrator.weatherbroker.server.city.view.CityView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,8 +37,15 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public List<City> getCitiesByName(String cityName) {
-        List<City> cities = cityDAO.citiesByName(cityName);
-        return cities;
+    @Transactional(readOnly = true)
+    public List<CityView> getCitiesLikeName(String cityName) {
+        List<City> cities = cityDAO.citiesLikeName(cityName);
+        List<CityView> cityViews = new ArrayList<CityView>(cities.size());
+
+        for (City city: cities) {
+            cityViews.add(CityView.mapToCityView(city));
+        }
+
+        return cityViews;
     }
 }

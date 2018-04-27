@@ -8,5 +8,5 @@ import java.util.List;
 public interface CityDAO {
     void save(City city);
     City loadByName(String cityName) throws NotFoundException;
-    List<City> citiesByName(String cityName);
+    List<City> citiesLikeName(String cityName);
 }

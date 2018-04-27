@@ -1,5 +1,7 @@
+ru\bellintegrator\weatherbroker\server\city\view\CityView.class
 ru\bellintegrator\weatherbroker\client\messageservice\service\MessageService.class
 ru\bellintegrator\weatherbroker\client\servicemanager\ServiceManager.class
+ru\bellintegrator\weatherbroker\server\city\controller\CityController.class
 ru\bellintegrator\weatherbroker\client\messageservice\JmsMessageListener.class
 ru\bellintegrator\weatherbroker\client\messageservice\service\impl\MessageServiceImpl.class
 ru\bellintegrator\weatherbroker\client\messageservice\JmsMessageProducer.class

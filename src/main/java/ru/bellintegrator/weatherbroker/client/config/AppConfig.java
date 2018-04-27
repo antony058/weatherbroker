@@ -1,7 +1,9 @@
 package ru.bellintegrator.weatherbroker.client.config;
 
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.weatherbroker.client.requestservice.RestTemplateManager;
 
@@ -19,34 +21,4 @@ public class AppConfig {
     public RestTemplateManager getRestTemplateManager() {
         return new RestTemplateManager(getRestTemplate());
     }
-
-    /*@Bean
-    public InitialContext getInitialContext() throws NamingException {
-        return new InitialContext();
-    }
-
-    @Bean
-    public ConnectionFactory getConnectionFactory() throws NamingException {
-        return (ConnectionFactory) getInitialContext().lookup(CONNECTION_FACTORY);
-    }
-
-    @Bean
-    public Queue getQueue() throws NamingException {
-        return (Queue) getInitialContext().lookup(QUEUE_DESTINATION);
-    }
-
-    @Bean
-    public JmsMessageListener getJmsMessageListener() {
-        return new JmsMessageListener();
-    }
-
-    @Bean
-    public DefaultMessageListenerContainer getDefaultMessageListenerContainer() throws NamingException {
-        DefaultMessageListenerContainer jmsContainer = new DefaultMessageListenerContainer();
-        jmsContainer.setConnectionFactory(getConnectionFactory());
-        jmsContainer.setDestination(getQueue());
-        jmsContainer.setMessageListener(getJmsMessageListener());
-
-        return jmsContainer;
-    }*/
 }

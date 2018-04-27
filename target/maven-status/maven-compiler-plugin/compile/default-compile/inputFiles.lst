@@ -4,6 +4,7 @@ C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\we
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\city\service\CityService.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\messageservice\JmsMessageProducer.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\service\WeatherService.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\city\controller\CityController.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\servlets\WeatherServlet.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\servicemanager\ServiceManager.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\messageservice\JmsMessageListener.java
@@ -18,6 +19,7 @@ C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\we
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\exceptionhandler\ExceptionHandlingController.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\dao\impl\WeatherDAOImpl.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\controller\WeatherController.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\city\view\CityView.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\servicemanager\impl\ServiceManagerImpl.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\model\Weather.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\dao\WeatherDAO.java
