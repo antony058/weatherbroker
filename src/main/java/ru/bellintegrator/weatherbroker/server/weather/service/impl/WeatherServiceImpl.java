@@ -28,7 +28,6 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    @Transactional
     public void save(WeatherView weatherView) throws NotFoundException {
         City city = cityService.loadByName(weatherView.getCity());
 

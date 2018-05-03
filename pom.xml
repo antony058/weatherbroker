@@ -65,13 +65,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.0.2.Final</version>
+            <version>5.1.0.Final</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.0.2.Final</version>
+            <version>5.1.0.Final</version>
         </dependency>
 
         <dependency>
@@ -90,13 +89,16 @@
             <version>42.2.2</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.atomikos/atomikos-util -->
         <dependency>
-            <groupId>com.atomikos</groupId>
-            <artifactId>atomikos-util</artifactId>
-            <version>4.0.6</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jta-atomikos</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

@@ -31,7 +31,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public City loadByName(String cityName) throws NotFoundException {
         return cityDAO.loadByName(cityName);
     }
