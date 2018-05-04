@@ -8,7 +8,7 @@
   </head>
   <body>
   <form>
-    <p>City: <%= request.getParameter("city")%></p>
+    <p><%= request.getParameter("city")%></p>
   </form>
   <p>
 

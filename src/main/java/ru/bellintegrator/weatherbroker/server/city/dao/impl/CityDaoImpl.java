@@ -1,12 +1,11 @@
 package ru.bellintegrator.weatherbroker.server.city.dao.impl;
 
 import javassist.NotFoundException;
-import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import ru.bellintegrator.weatherbroker.server.city.dao.CityDAO;
+import ru.bellintegrator.weatherbroker.server.city.dao.CityDao;
 import ru.bellintegrator.weatherbroker.server.city.model.City;
 
 import javax.persistence.EntityManager;
@@ -18,13 +17,13 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class CityDAOImpl implements CityDAO {
-    private Logger log = LoggerFactory.getLogger(CityDAOImpl.class);
+public class CityDaoImpl implements CityDao {
+    private Logger log = LoggerFactory.getLogger(CityDaoImpl.class);
 
     private final EntityManager em;
 
     @Autowired
-    public CityDAOImpl(EntityManager em) {
+    public CityDaoImpl(EntityManager em) {
         this.em = em;
     }
 

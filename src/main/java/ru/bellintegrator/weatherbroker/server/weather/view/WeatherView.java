@@ -1,6 +1,7 @@
 package ru.bellintegrator.weatherbroker.server.weather.view;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import javassist.NotFoundException;
 import ru.bellintegrator.weatherbroker.server.weather.model.Weather;
 
 import java.io.Serializable;
@@ -28,7 +29,7 @@ public class WeatherView implements Serializable {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(final String date) {
         this.date = date;
     }
 
@@ -37,7 +38,7 @@ public class WeatherView implements Serializable {
         return temp;
     }
 
-    public void setTemp(Integer temp) {
+    public void setTemp(final Integer temp) {
         this.temp = temp;
     }
 
@@ -46,7 +47,7 @@ public class WeatherView implements Serializable {
         return text;
     }
 
-    public void setText(String text) {
+    public void setText(final String text) {
         this.text = text;
     }
 
@@ -55,7 +56,7 @@ public class WeatherView implements Serializable {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
 
@@ -65,9 +66,10 @@ public class WeatherView implements Serializable {
     }
 
     @SuppressWarnings("unchecked")
-    public static WeatherView mapToWeather(Query query, String city) {
+    public static WeatherView mapToWeather(final Query query, final String city) {
         LinkedHashMap<String, Object> weatherData =
                 (LinkedHashMap<String, Object>) query.getQuery();
+
         weatherData = (LinkedHashMap<String, Object>) weatherData
                 .get("results");
         weatherData = (LinkedHashMap<String, Object>) weatherData
@@ -84,7 +86,7 @@ public class WeatherView implements Serializable {
                 (String) weatherData.get("text"));
     }
 
-    public static WeatherView mapToWeatherView(Weather weather, String cityName) {
+    public static WeatherView mapToWeatherView(final Weather weather, final String cityName) {
         return new WeatherView(
                 cityName,
                 null,

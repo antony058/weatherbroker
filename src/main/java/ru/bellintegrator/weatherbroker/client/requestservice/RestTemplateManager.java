@@ -1,5 +1,6 @@
 package ru.bellintegrator.weatherbroker.client.requestservice;
 
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.weatherbroker.server.weather.view.Query;
 import ru.bellintegrator.weatherbroker.server.weather.view.WeatherView;
+
+import java.util.LinkedHashMap;
 
 @Component
 public class RestTemplateManager {
@@ -24,8 +27,10 @@ public class RestTemplateManager {
         this.restTemplate = restTemplate;
     }
 
-    public WeatherView sendRequest(String cityName) {
+    public WeatherView sendRequest(String cityName) throws NotFoundException {
         Query query = restTemplate.getForObject(urlFirstPart + cityName + urlLastPart, Query.class);
+        if (!query.isQueryResultExist())
+            throw new NotFoundException("Weather for " + cityName + " is not founded");
 
         log.info("Загружена погода города " + cityName);
 

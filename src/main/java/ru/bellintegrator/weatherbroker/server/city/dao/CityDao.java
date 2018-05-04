@@ -5,7 +5,7 @@ import ru.bellintegrator.weatherbroker.server.city.model.City;
 
 import java.util.List;
 
-public interface CityDAO {
+public interface CityDao {
     void save(City city);
     City loadByName(String cityName) throws NotFoundException;
     List<City> citiesLikeName(String cityName);

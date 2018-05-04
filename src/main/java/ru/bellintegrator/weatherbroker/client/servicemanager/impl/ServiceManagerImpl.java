@@ -1,5 +1,6 @@
 package ru.bellintegrator.weatherbroker.client.servicemanager.impl;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.bellintegrator.weatherbroker.client.messageservice.service.MessageService;
@@ -20,7 +21,7 @@ public class ServiceManagerImpl implements ServiceManager {
     }
 
     @Override
-    public void pushCity(String cityName) {
+    public void pushCity(String cityName) throws NotFoundException {
         WeatherView weatherView = restTemplateManager.sendRequest(cityName);
         messageService.sendMessageToTopic(weatherView);
     }

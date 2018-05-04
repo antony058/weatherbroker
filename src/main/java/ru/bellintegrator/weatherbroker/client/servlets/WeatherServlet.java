@@ -1,5 +1,6 @@
 package ru.bellintegrator.weatherbroker.client.servlets;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.HttpRequestHandler;
@@ -18,13 +19,18 @@ public class WeatherServlet implements HttpRequestHandler {
 
     @Override
     public void handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletRequest.setCharacterEncoding("UTF-8");
         String city = httpServletRequest.getParameter("city");
 
-        serviceManager.pushCity(city);
+        try {
+            serviceManager.pushCity(city);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         httpServletRequest.setAttribute("city", city);
 
         httpServletRequest.getRequestDispatcher("/result.jsp")
-                .forward(httpServletRequest, httpServletResponse);
+                .include(httpServletRequest, httpServletResponse);
     }
 }

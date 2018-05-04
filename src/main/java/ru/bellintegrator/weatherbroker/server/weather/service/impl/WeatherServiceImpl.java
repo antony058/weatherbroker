@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.weatherbroker.server.city.model.City;
 import ru.bellintegrator.weatherbroker.server.city.service.CityService;
-import ru.bellintegrator.weatherbroker.server.weather.dao.WeatherDAO;
+import ru.bellintegrator.weatherbroker.server.weather.dao.WeatherDao;
 import ru.bellintegrator.weatherbroker.server.weather.model.Weather;
 import ru.bellintegrator.weatherbroker.server.weather.service.WeatherService;
 import ru.bellintegrator.weatherbroker.server.weather.view.WeatherView;
@@ -18,12 +18,12 @@ public class WeatherServiceImpl implements WeatherService {
 
     private Logger log = LoggerFactory.getLogger(WeatherServiceImpl.class);
 
-    private final WeatherDAO weatherDAO;
+    private final WeatherDao weatherDao;
     private final CityService cityService;
 
     @Autowired
-    public WeatherServiceImpl(WeatherDAO weatherDAO, CityService cityService) {
-        this.weatherDAO = weatherDAO;
+    public WeatherServiceImpl(WeatherDao weatherDao, CityService cityService) {
+        this.weatherDao = weatherDao;
         this.cityService = cityService;
     }
 
@@ -41,8 +41,8 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     @Transactional(readOnly = true)
-    public WeatherView getCityWeather(String cityName) {
-        Weather weather = weatherDAO.getWeatherByCity(cityName);
+    public WeatherView getCityWeather(String cityName) throws NotFoundException {
+        Weather weather = weatherDao.getWeatherByCity(cityName);
 
         return WeatherView.mapToWeatherView(weather, cityName);
     }

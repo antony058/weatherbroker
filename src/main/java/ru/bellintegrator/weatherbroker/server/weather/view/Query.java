@@ -1,5 +1,7 @@
 package ru.bellintegrator.weatherbroker.server.weather.view;
 
+import java.util.LinkedHashMap;
+
 public class Query {
 
     private Object query;
@@ -10,5 +12,9 @@ public class Query {
 
     public Object getQuery() {
         return query;
+    }
+
+    public boolean isQueryResultExist() {
+        return ((LinkedHashMap<String, Object>) query).get("results") != null;
     }
 }

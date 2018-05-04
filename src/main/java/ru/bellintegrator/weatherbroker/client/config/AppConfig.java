@@ -1,9 +1,7 @@
 package ru.bellintegrator.weatherbroker.client.config;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.weatherbroker.client.requestservice.RestTemplateManager;
 

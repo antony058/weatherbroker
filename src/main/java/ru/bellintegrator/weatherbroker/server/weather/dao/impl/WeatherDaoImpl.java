@@ -1,24 +1,28 @@
 package ru.bellintegrator.weatherbroker.server.weather.dao.impl;
 
+import javassist.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import ru.bellintegrator.weatherbroker.server.weather.dao.WeatherDAO;
+import ru.bellintegrator.weatherbroker.server.weather.dao.WeatherDao;
 import ru.bellintegrator.weatherbroker.server.weather.model.Weather;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 @Repository
-public class WeatherDAOImpl implements WeatherDAO {
+public class WeatherDaoImpl implements WeatherDao {
+    private final Logger log = LoggerFactory.getLogger(WeatherDao.class);
 
     private final EntityManager em;
 
     @Autowired
-    public WeatherDAOImpl(EntityManager em) {
+    public WeatherDaoImpl(EntityManager em) {
         this.em = em;
     }
 
@@ -28,12 +32,7 @@ public class WeatherDAOImpl implements WeatherDAO {
     }
 
     @Override
-    public List<Weather> getWeatherList() {
-        return em.createQuery("select w from Weather w", Weather.class).getResultList();
-    }
-
-    @Override
-    public Weather getWeatherByCity(String cityName) {
+    public Weather getWeatherByCity(String cityName) throws NotFoundException {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Weather.class);
 
@@ -44,12 +43,11 @@ public class WeatherDAOImpl implements WeatherDAO {
 
         TypedQuery<Weather> query = em.createQuery(criteriaQuery);
 
-        /*
-        * N.B. В БД может быть несколько записей о погоде для конкретного города
-        * Соответственно, в строке ниже может вывалится ошибка.
-        *
-        * Это нужно исправить.
-         */
-        return query.getSingleResult();
+        try {
+            return query.getSingleResult();
+        } catch (NoResultException ex) {
+            log.error("Погода для города " + cityName + " не найдена");
+            throw new NotFoundException("Weather not founded");
+        }
     }
 }
