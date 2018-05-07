@@ -8,14 +8,13 @@ C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\we
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\servlets\WeatherServlet.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\servicemanager\ServiceManager.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\messageservice\JmsMessageListener.java
-C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\messageservice\SimpleJmsProducer.java
+C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\servlets\ViewController.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\Application.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\city\dao\impl\CityDaoImpl.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\service\impl\WeatherServiceImpl.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\messageservice\service\impl\MessageServiceImpl.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\view\Query.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\config\AppConfig.java
-C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\client\messageservice\SimpleJmsConsumer.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\exceptionhandler\ExceptionHandlingController.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\dao\impl\WeatherDaoImpl.java
 C:\Users\pnz-admin\IdeaProjects\WeatherBroker\src\main\java\ru\bellintegrator\weatherbroker\server\weather\controller\WeatherController.java

@@ -5,6 +5,9 @@ import ru.bellintegrator.weatherbroker.server.city.model.City;
 
 public class CityView {
 
+    /*
+    * Название города
+     */
     private String city;
 
     public CityView() {

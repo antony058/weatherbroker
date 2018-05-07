@@ -27,6 +27,9 @@ public class WeatherServiceImpl implements WeatherService {
         this.cityService = cityService;
     }
 
+    /*
+    * {@inheritDoc}
+     */
     @Override
     public void save(WeatherView weatherView) throws NotFoundException {
         City city = cityService.loadByName(weatherView.getCity());
@@ -39,6 +42,9 @@ public class WeatherServiceImpl implements WeatherService {
         log.info("Погода добавлена в бд");
     }
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     @Transactional(readOnly = true)
     public WeatherView getCityWeather(String cityName) throws NotFoundException {

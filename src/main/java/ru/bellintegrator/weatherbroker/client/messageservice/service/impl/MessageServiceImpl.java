@@ -14,11 +14,17 @@ public class MessageServiceImpl implements MessageService {
 
     private final JmsMessageProducer jmsMessageProducer;
 
+    /*
+    * @param jmsMessageProducer - bean отправки сообщений в Topic
+     */
     @Autowired
     public MessageServiceImpl(JmsMessageProducer jmsMessageProducer) {
         this.jmsMessageProducer = jmsMessageProducer;
     }
 
+    /*
+    * {@inheritDoc}
+     */
     @Override
     public void sendMessageToTopic(WeatherView view) {
         jmsMessageProducer.sendMessage(view);

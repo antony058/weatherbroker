@@ -15,6 +15,12 @@ public class JmsMessageProducer {
     @Autowired
     private JmsTemplate jmsTemplate;
 
+    /*
+    * Метод принимает в качестве параметра view и отправляет ее в JMS Topic
+    * посредством JmsTemplate.
+    *
+    * @param weatherView - представление, которое будет отправлено в Topic
+     */
     @Transactional(rollbackFor = Exception.class)
     public void sendMessage(final WeatherView weatherView) {
         jmsTemplate.send(new MessageCreator() {

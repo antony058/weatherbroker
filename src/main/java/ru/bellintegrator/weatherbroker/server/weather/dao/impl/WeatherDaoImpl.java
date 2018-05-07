@@ -26,11 +26,17 @@ public class WeatherDaoImpl implements WeatherDao {
         this.em = em;
     }
 
+    /*
+    * {@inheritDoc}
+     */
     @Override
     public void save(Weather weather) {
         em.persist(weather);
     }
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     public Weather getWeatherByCity(String cityName) throws NotFoundException {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();

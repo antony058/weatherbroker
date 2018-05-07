@@ -21,6 +21,14 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
+    /*
+    * Метод срабатывает по url <i>/weather/{city}</i> и возвращает погоду для заданного города
+    *
+    * @param city - название города
+    * @return записывает результат о погоде, полученный из БД, в тело HTTP-ответа
+    *
+    * @throws NotFoundException Если погода для заданного города не найдена в БД
+     */
     @RequestMapping(value = "/weather/{city}", method = {RequestMethod.GET})
     public ResponseEntity<WeatherView> getWeather(@PathVariable String city) throws NotFoundException {
         WeatherView weatherView = weatherService.getCityWeather(city);

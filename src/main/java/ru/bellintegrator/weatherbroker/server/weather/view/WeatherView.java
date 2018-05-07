@@ -8,9 +8,24 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 
 public class WeatherView implements Serializable {
+    /*
+    * дата
+     */
     private String date;
+
+    /*
+    * Температура
+     */
     private Integer temp;
+
+    /*
+    * Описание
+     */
     private String text;
+
+    /*
+    * Название города
+     */
     private String city;
 
     public WeatherView() {
@@ -65,6 +80,14 @@ public class WeatherView implements Serializable {
         return "date: " + date + "\ntemp: " + temp + "\ntext: " + text;
     }
 
+    /*
+    * Метод принимает результат запроса, полученный от сервера, и название города.
+    * Затем полученный результат конвертируется в класс представления {@link WeatherView}
+    *
+    * @param query - результат запроса, полученный от сервера
+    * @param city - название города
+    * @return возвращает объект представления погоды конкретного города
+     */
     @SuppressWarnings("unchecked")
     public static WeatherView mapToWeather(final Query query, final String city) {
         LinkedHashMap<String, Object> weatherData =
@@ -86,6 +109,14 @@ public class WeatherView implements Serializable {
                 (String) weatherData.get("text"));
     }
 
+    /*
+    * Метод принмает Entity объект погоды и название города.
+    * Затем маппит это к представлению {@link WeatherView} и возвращает полученное представление
+    *
+    * @param weather - Entity-объект погоды из базы данных
+    * @param cityName - название города
+    * @return возвращает объект представления погоды конкретного города
+     */
     public static WeatherView mapToWeatherView(final Weather weather, final String cityName) {
         return new WeatherView(
                 cityName,

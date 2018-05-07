@@ -20,6 +20,12 @@ public class JmsMessageListener {
     @Autowired
     private WeatherService weatherService;
 
+    /*
+    * Слушатель сообщений из Topic. Сообщением являются данные о погоде определенного города.
+    * Полученные данные о погоде записываются в базу данных
+    *
+    * @param message - сообщение из Topic'а
+     */
     @JmsListener(destination = "testTopic", containerFactory = "containerFactory")
     public void gotMessage(Message message) throws JMSException, NotFoundException {
         if (message instanceof ObjectMessage) {

@@ -28,11 +28,17 @@ public class CityDaoImpl implements CityDao {
     }
 
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     public void save(City city) {
         em.persist(city);
     }
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     public City loadByName(String cityName) throws NotFoundException {
         TypedQuery<City> query = em.createQuery("SELECT c from City c WHERE c.cityName='" + cityName + "'", City.class);
@@ -45,6 +51,9 @@ public class CityDaoImpl implements CityDao {
         }
     }
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     public List<City> citiesLikeName(String cityName) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();

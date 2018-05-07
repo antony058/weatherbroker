@@ -12,9 +12,15 @@ public class Weather {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /*
+    * Температура
+     */
     @Column(name = "temperature")
     private Integer temperature;
 
+    /*
+    * Описание
+     */
     @Column(name = "description")
     private String description;
 

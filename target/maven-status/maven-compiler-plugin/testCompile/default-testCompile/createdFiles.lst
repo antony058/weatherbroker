@@ -1,5 +1,7 @@
-requestservice\RestTemplateManagerTest.class
 city\CityDaoTest.class
 weather\WeatherDaoTest.class
 city\CityServiceTest.class
+messageservice\MessageServiceTest.class
 weather\WeatherServiceTest.class
+servicemanager\ServiceManagerTest.class
+requestservice\RestTemplateManagerTest.class

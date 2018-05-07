@@ -24,6 +24,13 @@ public class CityController {
         this.cityService = cityService;
     }
 
+    /*
+    * Метод срабатывает по url <i>/city/list/{city}</i> и возвращает список городов,
+    * которые содержат в своем названии принимаемую строку
+    *
+    * @param city - название города или часть этого названия. Является частью url
+    * @return записывает полученный список городов из БД в тело HTTP-ответа
+     */
     @RequestMapping(value = "/list/{city}")
     public ResponseEntity<List<CityView>> getCitiesLikeName(@PathVariable(value = "city") String city) {
         List<CityView> cityViews = cityService.getCitiesLikeName(city);

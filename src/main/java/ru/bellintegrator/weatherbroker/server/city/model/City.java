@@ -14,6 +14,9 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /*
+    * Название города
+     */
     @Column(name = "name", nullable = false)
     private String cityName;
 

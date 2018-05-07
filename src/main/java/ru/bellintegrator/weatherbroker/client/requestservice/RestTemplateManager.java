@@ -27,6 +27,14 @@ public class RestTemplateManager {
         this.restTemplate = restTemplate;
     }
 
+    /*
+    * Метод отправляет запрос посредством {@link RestTemplate} к сервису Yahoo.
+    * Полученный результат маппится на {@link WeatherView} и возвращается,
+    * как результат работы функции
+    *
+    * @param cityName - название города, для которого будет выполнен запрос о погоде
+    * @return возвращает view с информацией о погоде для запрашиваемого города
+     */
     public WeatherView sendRequest(String cityName) throws NotFoundException {
         Query query = restTemplate.getForObject(urlFirstPart + cityName + urlLastPart, Query.class);
         if (!query.isQueryResultExist())

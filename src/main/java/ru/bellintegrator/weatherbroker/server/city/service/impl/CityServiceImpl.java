@@ -22,6 +22,9 @@ public class CityServiceImpl implements CityService {
         this.cityDao = cityDao;
     }
 
+    /*
+    * {@inheritDoc}
+     */
     @Override
     @Transactional
     public void save(String cityName) {
@@ -30,12 +33,18 @@ public class CityServiceImpl implements CityService {
         cityDao.save(city);
     }
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     @Transactional
     public City loadByName(String cityName) throws NotFoundException {
         return cityDao.loadByName(cityName);
     }
 
+    /*
+     * {@inheritDoc}
+     */
     @Override
     @Transactional(readOnly = true)
     public List<CityView> getCitiesLikeName(String cityName) {
